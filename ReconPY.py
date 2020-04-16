@@ -8,9 +8,10 @@ parser.add_argument("--domain", dest='domain', help='Domain Name for the Recon!'
 args = parser.parse_args()
 dom = args.domain
 
-#						"""	Part 1: GATHERING SUBDOMAINS """
 
+#						Part 1: GATHERING SUBDOMAINS 
 
+"""
 # Passive Amass Scanning
 print('\n[*] Gathering Passive Subdomains using Amass...\n\n')
 os.system('amass enum --passive -d ' + args.domain + ' -o amass.txt')
@@ -57,27 +58,20 @@ print()
 os.system('massdns -r ~/massdns/lists/resolvers.txt -q -t A -o S -w "Domains-online.txt" "Potential-Domains.txt"')
 
 
-# AltDns Smart Brute-Forcing --> Need to implement Recurssion here
-# filenames = ["Domains-online.txt", "altdns.txt", "Level1-Domains.txt", "Level2-Domains.txt"]
+# Dnsgen Smart Brute-Forcing with Recurssion --> Live and Httprobed Domains
 
 """
-flag = 1	
 
-def rec(a):
-	# print(a,b)
-	global flag
-	while flag < 3:
-		os.system('altdns -i ' + str(a) + '.txt -w ../altdns_words.txt -o ' + str(a+1) + '.txt')
+####	Call the BrutedSubs sub-script here
 
-		
-		#Resolving again for AltDns Domains 
-		print('MassDns')
-		os.system('massdns -r ~/massdns/lists/resolvers.txt -q -t A -o S -w "' + str(a+2) + '.txt" "' + str(a+1) + '.txt"')
-		print('Done Once')
-		flag += 1
-		print(flag)
-		rec(a+2)
-		
 
-rec(0)
+"""
+
+"""
+# Fetching IPs using Dig and Scanning using Masscan followed by Nmap
+# print()
+"""
+
+####	Call the PortsAndServices sub-script here
+
 """
