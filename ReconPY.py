@@ -163,9 +163,9 @@ def main():
 
 
 	# Combining the Subdomain Lists
-	send = "\nCombining files from all Tools..."
-	print(send)
-	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
+	blah = "\nCombining files from all Tools..."
+	print(blah)
+	post(slack, data="{'text': '"  + blah + "'}", headers={'Content-Type': 'application/json'})
 	Combine()
 
 
