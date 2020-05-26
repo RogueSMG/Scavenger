@@ -3,11 +3,15 @@ import sys
 import re
 import argparse
 import subprocess
+import configparser
 from time import sleep
 from threading import Thread
 from requests import post
-from dotenv import load_dotenv
-load_dotenv()
+
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+slack = config['default']['SLACKBB']
 
 
 parser = argparse.ArgumentParser(description='Recon Testing')
@@ -18,7 +22,6 @@ dom = args.domain
 
 os.mkdir(dom)
 os.chdir(dom)
-slack = os.environ.get('SLACKBB')
 
 
 #								Part 1: GATHERING SUBDOMAINS 
@@ -162,7 +165,7 @@ def main():
 	# Combining the Subdomain Lists
 	send = "\nCombining files from all Tools..."
 	print(send)
-	post(slack, data="{'text': "  + send + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
 	Combine()
 
 
@@ -170,7 +173,7 @@ def main():
 	# Resolving with Shuffledns
 	shufl = "\nResolving Passive Domains...."
 	print(shufl)
-	post(slack, data="{'text': "  + shufl + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + shufl + "'}", headers={'Content-Type': 'application/json'})
 	Resolve()
 
 
@@ -178,7 +181,7 @@ def main():
 	# Calling the BruteForcer
 	bruf = "\nBruteForcing and Resolving to find more Domains..."
 	print(bruf)
-	post(slack, data="{'text': "  + bruf + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + bruf + "'}", headers={'Content-Type': 'application/json'})
 	Brute()
 
 
@@ -186,7 +189,7 @@ def main():
 	# Calling the Beast Ffuf
 	bfuff = "\nDirectory BruteForcing..."
 	print(bfuff)
-	post(slack, data="{'text': "  + bfuff + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + bfuff + "'}", headers={'Content-Type': 'application/json'})
 	DirBrute()
 
 
@@ -194,7 +197,7 @@ def main():
 	# Calling the PortScanner
 	pscan = "\nRunning PortScans..."
 	print(pscan)
-	post(slack, data="{'text': "  + pscan + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + pscan + "'}", headers={'Content-Type': 'application/json'})
 	PortScans()
 
 
@@ -202,7 +205,7 @@ def main():
 
 	fin = "\n\n[$$$] ALL THE BORING STUFF DONE, GO HACK NOW...! [$$$]"
 	print(fin)
-	post(slack, data="{'text': "  + fin + "}", headers={'Content-Type': 'application/json'})
+	post(slack, data="{'text': '"  + fin + "'}", headers={'Content-Type': 'application/json'})
 
 
 

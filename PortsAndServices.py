@@ -1,7 +1,7 @@
-#!/usr/bin/python3.8
-
 import os
 import subprocess
+from requests import post
+
 
 
 def fetch():
@@ -25,8 +25,6 @@ def fetch():
 			subprocess.run(['rm', '-r', line.replace("://","-")])
 			continue
 
-		# print("EK KAAM PATYU")
-
 		
 
 		with open('IP.txt') as fs:
@@ -44,7 +42,6 @@ def fetch():
 				os.chdir('..')
 				continue
 
-			# print("BIJU KAAM PATYU")
 			
 			with open("Open.txt") as fsp:
 
@@ -74,7 +71,8 @@ def main(slack):
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
 
+
+
 if __name__ == '__main__':
-	# fetch()
 	main(slx)
 	
