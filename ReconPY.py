@@ -29,44 +29,44 @@ os.chdir(dom)
 
 # Passive Amass Scanning
 def amass_scan():
-	# os.system('amass enum --passive -d ' + args.domain + ' -o amass.txt')
+	
 	subprocess.check_output(["amass", "enum", "--passive", "-d", dom, "-o", "amass.txt"], stderr=subprocess.DEVNULL)
 	send = "Amass found " + str(sum(1 for line in open('amass.txt'))) + " Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 # Findomain Scanning
 def findomain_scan():
-	# os.system('findomain --target ' + dom + ' --threads 50 -o')
+	
 	subprocess.check_output(["findomain", "--target", dom, "--threads", "50", "-u", "findomain.txt"], stderr=subprocess.STDOUT)
 	send = "Findomain found " + str(sum(1 for line in open('findomain.txt'))) + " Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 # Assetfinder Scanning
 def assetfinder_scan():
-	# os.system('assetfinder --subs-only ' + dom + ' > assetfinder.txt')
+	
 	with open("assetfinder.txt", "w") as fp:
 		subprocess.run(["assetfinder", "--subs-only", dom], text=True, stdout=fp)
 	send = "Assetfinder found " + str(sum(1 for line in open('assetfinder.txt'))) + " Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
-# Subfinder Scanning
+
 def subfinder_scan():
-	# os.system('subfinder -silent -d ' + dom + ' -o subfinder.txt')
+	
 	subprocess.check_output(["subfinder", "-silent", "-t", "100", "-d", dom, "-o", "subfinder.txt"], stderr=subprocess.STDOUT)
 	send = "Subfinder found " + str(sum(1 for line in open('subfinder.txt'))) + " Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 #Commomspeak2 Brute Forcing
 def cspeak_brute():
-	# print('\n\n[*] Bruting Subs using commonspeak2 subdomain wordlist...')
+	
 	wordlist = open('/root/Wordlists/subdomains.txt').read().split('\n')
 
 	for word in wordlist:
@@ -74,14 +74,14 @@ def cspeak_brute():
 	        continue
 	    f = open("CommonSpeak_Bruted.txt", "a+" )
 	    f.write('{}.{}\n'.format(word.strip(), args.domain))
-	    # sleep(0.3)
-	    # print('{}.{}\n'.format(word.strip(), scope))
+	    
+	    
 	f.close()
-	# print('[+] File Closed!')
+	
 	send = 'CommomSpeak Generated ' + str(sum(1 for line in open('CommonSpeak_Bruted.txt'))) + ' Domains'
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 
 
@@ -94,7 +94,7 @@ def Combine():
 	send = "Total found " + str(sum(1 for line in open('Potential-Domains.txt'))) + " Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 
 def Resolve():
@@ -103,7 +103,7 @@ def Resolve():
 	send = "Total " + str(sum(1 for line in open('Domains-Online.txt'))) + " Live Passive Domains"
 	print(send)
 	post(slack, data="{'text': '"  + send + "'}", headers={'Content-Type': 'application/json'})
-	# sleep(1)
+	
 
 
 def Brute():

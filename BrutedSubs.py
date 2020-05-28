@@ -6,7 +6,6 @@ from requests import post
 
 
 def rec(a,dom):
-	# print(a,b)
 	global flag
 	while flag < 5:
 		print("Iteration Number: " + str(flag))
