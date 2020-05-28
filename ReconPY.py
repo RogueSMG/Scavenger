@@ -114,12 +114,18 @@ def Brute():
 
 def PortScans():
 	import PortsAndServices
+	pscan = "\nRunning PortScans..."
+	print(pscan)
+	post(slack, data="{'text': '"  + pscan + "'}", headers={'Content-Type': 'application/json'})
 	PortsAndServices.main(slack)
 
 
 
 def DirBrute():
 	import Dbrute
+	bfuff = "\nDirectory BruteForcing..."
+	print(bfuff)
+	post(slack, data="{'text': '"  + bfuff + "'}", headers={'Content-Type': 'application/json'})
 	Dbrute.main(slack)
 
 
@@ -132,25 +138,17 @@ def main():
 	print(letsgo)
 	post(slack, data="{'text': '"  + letsgo + "'}", headers={'Content-Type': 'application/json'})
 	t1 = Thread(target=amass_scan)
-	# sleep(0.2)
 	t2 = Thread(target=findomain_scan)
-	# sleep(0.4)
 	t3 = Thread(target=assetfinder_scan)
-	# sleep(0.6)
 	t4 = Thread(target=subfinder_scan)
-	# sleep(0.8)
 	t5 = Thread(target=cspeak_brute)
-	# sleep(0.9)
-	# t6 = Thread(target=shit_combined).start()
+	
+
 
 	t1.start()
-	# sleep(0.2)
 	t2.start()
-	# sleep(0.2)
 	t3.start()
-	# sleep(0.2)
 	t4.start()
-	#sleep(0.2)
 	t5.start()
 
 
@@ -185,21 +183,14 @@ def main():
 	Brute()
 
 
+	t6 = Thread(target=PortScans)
+	t7 = Thread(target=DirBrute)
 
-	# Calling the Beast Ffuf
-	bfuff = "\nDirectory BruteForcing..."
-	print(bfuff)
-	post(slack, data="{'text': '"  + bfuff + "'}", headers={'Content-Type': 'application/json'})
-	DirBrute()
+	t6.start()
+	t7.start()
 
-
-
-	# Calling the PortScanner
-	pscan = "\nRunning PortScans..."
-	print(pscan)
-	post(slack, data="{'text': '"  + pscan + "'}", headers={'Content-Type': 'application/json'})
-	PortScans()
-
+	t6.join()
+	t7.join()
 
 
 

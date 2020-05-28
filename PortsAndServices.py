@@ -32,7 +32,7 @@ def fetch():
 			mod = text1.rstrip("\n")
 			print("\n" + mod)
 
-			p1 = subprocess.run(['sudo', 'masscan', mod, '--top-ports', '500', '--rate', '10000', '--wait', '3', '2'], capture_output=True, text=True)
+			p1 = subprocess.run(['sudo', 'masscan', mod, '-p0-65535', '--rate', '100000', '--wait', '3', '2'], capture_output=True, text=True)
 
 			if p1.stdout != '':
 				with open("Open.txt","w") as out:
