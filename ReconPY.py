@@ -22,9 +22,7 @@ dom = args.domain
 
 os.mkdir(dom)
 os.chdir(dom)
-
-
-#								Part 1: GATHERING SUBDOMAINS 
+ 
 
 
 # Passive Amass Scanning
