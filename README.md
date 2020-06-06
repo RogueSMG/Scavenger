@@ -45,7 +45,7 @@ Firstly, I really appreciate you looking into this. Thank You! And you can hit m
 
 ## A Bonus Resource for Beginners
 
-I've also made a small blog at [TheHackrSpace.com](https://thehackrspace.com) where I keep updating about various Infosec and Bug Bounty related stuff, mainly aimed at beginners like me. do check that out! <3
+I've also made a small blog at [TheHackrSpace.com](https://thehackrspace.com) where I keep updating about various Infosec and Bug Bounty related stuff, mainly aimed at beginners like me. Do Check that Out! <3
 
 
 ## A Note of Thanks
