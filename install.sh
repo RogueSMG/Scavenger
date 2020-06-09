@@ -1,8 +1,6 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt -y upgrade
-sudo apt -y dist-upgrade
 
 
 # Install Golang if not already installed
@@ -39,22 +37,16 @@ done
 fi
 
 
-# Install RUST for Findomain
-curl https://sh.rustup.rs -sSf | sh
-source ~/.profile
-source ~/.cargo/env
-
 
 # Make a tools directory
 mkdir -p ~/tools
 cd ~/tools
 
 # Install Findomain
-git clone https://github.com/Edu4rdSHL/findomain.git
-cd findomain
-cargo build --release
-sudo cp target/release/findomain /usr/bin
-cd ..
+wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux 
+chmod +x findomain-linux
+mv findomain-linux /usr/bin/findomain
+
 
 # Install Masscan
 sudo apt-get install git gcc make libpcap-dev
@@ -64,12 +56,6 @@ make
 mv masscan /usr/bin
 
 cd ..
-
-# Install Subfinder
-wget -c "https://github.com/projectdiscovery/subfinder/releases/download/v2.3.2/subfinder-linux-amd64.tar"
-tar -xvf subfinder-linux-amd64.tar
-mv subfinder-linux-amd64 /usr/bin/subfinder
-rm subfinder-linux-amd64.tar
 
 
 # Wordlists
@@ -86,7 +72,7 @@ sudo snap install amass
 sudo apt install nmap
 
 # Installing the required GO based tools
-go get -u github.com/tomnomnom/httprobe
 go get -u github.com/tomnomnom/assetfinder
 go get -u github.com/ffuf/ffuf
 go get -u github.com/tomnomnom/httprobe
+go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
