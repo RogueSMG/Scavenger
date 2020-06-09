@@ -50,4 +50,4 @@ I've also made a small blog at [TheHackrSpace.com](https://thehackrspace.com) wh
 
 ## A Note of Thanks
 
-**This wouldn't have been possible without the contributions of the Awesome people in this community! All the credit goes to the guys making such amazing tools which are used in making this script. Thank You! <3**
+**This would not have been possible without the contributions of the Awesome people in this community! All the credit goes to the guys making such amazing tools which are used in making this script. Thank You! <3**

@@ -12,10 +12,10 @@ def rec(a,dom):
 		
 		# Generating Permutations with Dnsgen
 		with open(fnames[a+1], 'w') as f:
-			subprocess.run(['timeout', '30', 'dnsgen', fnames[a], '-w', '/root/Wordlists/words.txt'], text=True, stdout=f)
+			subprocess.run(['timeout', '30', 'dnsgen', fnames[a], '-w', '~/Wordlists/words.txt'], text=True, stdout=f)
 		
 		# Resolving again for AltDns Domains 
-		subprocess.check_output(["shuffledns", "-d", dom, "-list", fnames[a+1], "-r", "/root/tools/findomain/massdns/lists/resolvers.txt", "-t", "15000", "-o", fnames[a+2]], stderr=subprocess.STDOUT)
+		subprocess.check_output(["shuffledns", "-d", dom, "-list", fnames[a+1], "-r", "~/tools/findomain/massdns/lists/resolvers.txt", "-t", "15000", "-o", fnames[a+2]], stderr=subprocess.STDOUT)
 
 		flag += 1
 		rec(a+2, dom)

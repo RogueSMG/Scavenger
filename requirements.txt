@@ -1,0 +1,6 @@
+argparse
+configparser
+requests
+jq
+dnsgen
+glob
