@@ -53,7 +53,7 @@ sudo apt-get install git gcc make libpcap-dev
 git clone https://github.com/robertdavidgraham/masscan
 cd masscan
 make
-mv masscan /usr/bin
+mv bin/masscan /usr/bin/
 
 cd ..
 
@@ -75,4 +75,4 @@ sudo apt install nmap
 go get -u github.com/tomnomnom/assetfinder
 go get -u github.com/ffuf/ffuf
 go get -u github.com/tomnomnom/httprobe
-go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/cmd/subfinder
