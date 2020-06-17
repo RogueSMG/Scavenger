@@ -14,7 +14,7 @@ def rec(a,dom):
 		with open(fnames[a+1], 'w') as f:
 			subprocess.run(['timeout', '30', 'dnsgen', fnames[a], '-w', '/root/Wordlists/words.txt'], text=True, stdout=f)
 		
-		# Resolving again for AltDns Domains 
+		# Resolving again for Dnsgen Generated Domains 
 		subprocess.check_output(["shuffledns", "-d", dom, "-list", fnames[a+1], "-r", "/root/tools/findomain/massdns/lists/resolvers.txt", "-t", "15000", "-o", fnames[a+2]], stderr=subprocess.STDOUT)
 
 		flag += 1
