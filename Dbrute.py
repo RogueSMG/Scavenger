@@ -7,7 +7,7 @@ os.mkdir('Directories')
 
 def beast():
 
-		subprocess.run(["""xargs -P10 -I {} sh -c 'url="{}"; ffuf -c -H "X-Forwarded-For: 127.0.0.1" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0" -u "{}/FUZZ" -w ~/Wordlists/dicc.txt -t 50 -D -e js,php,bak,txt,asp,aspx,jsp,html,zip,jar,sql,json,old,gz,shtml,log,swp,yaml,yml,config,save,rsa,ppk -ac -se -o Directories/${url##*/}-${url%%:*}.json' < Web-Domains.txt"""],shell=True, stdout=subprocess.DEVNULL)
+		subprocess.run(["""xargs -P10 -I {} sh -c 'url="{}"; ffuf -c -H "X-Forwarded-For: 127.0.0.1" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0" -u "{}/FUZZ" -w /root/Wordlists/dicc.txt -t 50 -D -e js,php,bak,txt,asp,aspx,jsp,html,zip,jar,sql,json,old,gz,shtml,log,swp,yaml,yml,config,save,rsa,ppk -ac -se -o Directories/${url##*/}-${url%%:*}.json' < Web-Domains.txt"""],shell=True, stdout=subprocess.DEVNULL)
 		send = "Fuff Done!"
 		print(send)
 

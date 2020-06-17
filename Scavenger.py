@@ -64,7 +64,7 @@ def subfinder_scan():
 #Commomspeak2 Brute Forcing
 def cspeak_brute():
 	
-	wordlist = open('~/Wordlists/subdomains.txt').read().split('\n')
+	wordlist = open('/root/Wordlists/subdomains.txt').read().split('\n')
 
 	for word in wordlist:
 	    if not word.strip(): 
@@ -95,7 +95,7 @@ def Combine():
 
 
 def Resolve():
-	subprocess.check_output(["shuffledns", "-silent", "-d", dom, "-list", "Potential-Domains.txt", "-r", "~/tools/findomain/massdns/lists/resolvers.txt", "-t", "15000", "-o", "Domains-Online.txt"], stderr=subprocess.STDOUT)
+	subprocess.check_output(["shuffledns", "-silent", "-d", dom, "-list", "Potential-Domains.txt", "-r", "/root/tools/findomain/massdns/lists/resolvers.txt", "-t", "15000", "-o", "Domains-Online.txt"], stderr=subprocess.STDOUT)
 	subprocess.run(['rm', 'Potential-Domains.txt'])
 	send = "Total " + str(sum(1 for line in open('Domains-Online.txt'))) + " Live Passive Domains"
 	print(send)
