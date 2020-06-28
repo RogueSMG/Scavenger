@@ -180,15 +180,19 @@ def main():
 	Brute()
 
 
-	t6 = Thread(target=PortScans)
-	t7 = Thread(target=DirBrute)
+	# t6 = Thread(target=PortScans)
+	# t7 = Thread(target=DirBrute)
 
-	t6.start()
-	t7.start()
+	# t6.start()
+	# t7.start()
 
-	t6.join()
-	t7.join()
+	# t6.join()
+	# t7.join()
 
+
+	PortScans()
+
+	DirBrute()
 
 
 	fin = "\n\n[$$$] ALL THE BORING STUFF DONE, GO HACK NOW...! [$$$]"
