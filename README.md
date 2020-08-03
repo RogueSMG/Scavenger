@@ -48,6 +48,11 @@ Firstly, I really appreciate you looking into this. Thank You! And you can hit m
 
 I've also made a small blog at [TheHackrSpace.com](https://thehackrspace.com) where I keep updating about various Infosec and Bug Bounty related stuff, mainly aimed at beginners like me. Do Check that Out! <3
 
+**Update**
+
+Started a New Youtube Channel aimed at Bug Bounties. Definitely Check this one out!
+
+https://www.youtube.com/channel/UC855OCrjl7C3elK8VfEZoHw
 
 ## A Note of Thanks
 
