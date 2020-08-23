@@ -3,4 +3,4 @@ configparser
 requests
 jq
 dnsgen
-glob
+glob3
