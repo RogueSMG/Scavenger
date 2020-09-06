@@ -52,7 +52,7 @@ I've also made a small blog at [TheHackrSpace.com](https://thehackrspace.com) wh
 
 Started a New Youtube Channel aimed at Bug Bounties. Definitely Check this one out!
 
-https://www.youtube.com/channel/UC855OCrjl7C3elK8VfEZoHw
+https://www.youtube.com/c/RogueSMG
 
 ## A Note of Thanks
 
