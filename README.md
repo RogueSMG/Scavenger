@@ -1,3 +1,5 @@
+# [Not Maintained]
+
 # Scavenger
 Noobish Recon Automation Script
 
