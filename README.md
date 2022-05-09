@@ -21,7 +21,7 @@ A simple and fast(uses Threads) Recon Automation Script to eliminate the boring 
 * git clone https://github.com/LifeHack3r/Scavenger
 * cd Scavenger
 * pip3 install -r requirements.txt
-* chmod+x install.sh
+* chmod +x install.sh
 * ./install.sh
 * Add Slack Webhook URL in config file
 
