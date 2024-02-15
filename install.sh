@@ -43,9 +43,10 @@ mkdir -p ~/tools
 cd ~/tools
 
 # Install Findomain
-wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux 
-chmod +x findomain-linux
-mv findomain-linux /usr/bin/findomain
+wget https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip
+unzip findomain-linux.zip
+chmod +x findomain
+mv findomain /usr/bin/findomain
 
 
 # Install Masscan
@@ -72,7 +73,7 @@ sudo snap install amass
 sudo apt install nmap
 
 # Installing the required GO based tools
-go get -u github.com/tomnomnom/assetfinder
-go get -u github.com/ffuf/ffuf
-go get -u github.com/tomnomnom/httprobe
-GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/cmd/subfinder
+go install github.com/tomnomnom/assetfinder@latest
+go install github.com/ffuf/ffuf@latest
+go install github.com/tomnomnom/httprobe@latest
+go install github.com/projectdiscovery/subfinder/cmd/subfinder@latest
